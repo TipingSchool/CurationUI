@@ -6,6 +6,7 @@ import axios from 'axios';
 import config from '../../config';
 
 const UriPlaceholder = config.api_Url;
+let selected = [] ; //Array Containing the Selected Feeds for User Action
 
 class App extends Component{
   constructor(props){
