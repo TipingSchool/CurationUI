@@ -1,0 +1,40 @@
+.flex-container{
+  display:inline-flex;
+  margin: 30px 100px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.cat-card-box{
+  /* max-width: 250px; */
+  background-color: white;
+  width: 100%;
+  /* border: 1px solid black; */
+  text-align: center;
+  height: 250px;
+  margin: 20px;
+  box-sizing: border-box;
+  box-shadow: 4px 5px 6px darkgrey;
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+p{
+  margin: 0;
+}
+
+.cat-card-img{
+  width:100%;
+  /* margin: 10px; */
+  height: 200px;
+  /* border: 1px solid; */
+}
+
+.stat{
+  height: 20px;
+}
+
+Link{
+  text-decoration: none;
+}
+

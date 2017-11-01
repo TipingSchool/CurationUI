@@ -1,0 +1,22 @@
+.nav-span{
+    margin-inline-end: 30px;
+    display: inline;
+}
+
+.nav-search{
+    width: 100px;
+    display: inline-block;
+    transition: width 0.5s;
+    border-radius: 10px;
+}
+.nav-search:focus{
+    width: 300px;
+}
+
+.search-icon{
+    background-color: #2b2929;
+    color: white;
+    /* font-size: 20px; */
+    margin: 5px;
+    cursor: pointer
+}

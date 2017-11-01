@@ -1,0 +1,16 @@
+.App-header {
+    background-color: #2B2929;
+    height: 25px;
+    font-size: 18px;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    position: fixed;
+    width : 100%;
+    z-index: 10;
+}
+
+.nav-span{
+    margin-inline-end: 30px;
+    display: inline;
+}

@@ -1,0 +1,231 @@
+@font-face {
+    font-family:  'Basic';
+    src: url(../fonts/Basic-Regular.ttf);
+}
+
+@font-face {
+    font-family : 'PT_Sans-Web-Regular';
+    src : url(../fonts/PT_Sans-Web-Regular.ttf);
+}
+
+@font-face {
+    font-family : 'Nunito-Regular';
+    src : url(../fonts/Nunito-Regular.ttf);
+}
+
+@font-face {
+    font-family : 'TitilliumWeb-Regular';
+    src : url(../fonts/TitilliumWeb-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src : url(../fonts/Roboto-Regular.ttf);
+}
+
+.stat{
+    height: 60px;
+}
+  
+
+
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 50px;
+}
+
+.filters{
+    padding: 10px;
+    /* border:  1px solid black; */
+    position:sticky;
+    top: 100px;
+    height: 70vh;
+    margin-left: 10px;
+}
+.feed-card-box{
+    display: inline-block;
+    font-weight: 400;
+    width:700px;
+    background-color: white;
+    height: 130px;
+    margin: 10px 0 10px 10px;
+    box-sizing: border-box;
+    box-shadow: 1px 3px 2px -1px #676B64;
+    font-size: 30px;
+    font-family: sans-serif;
+    cursor: pointer;
+    border-radius : 7px;
+}
+
+
+.img-card{
+    height: 130px;
+    width:100px;
+    float: left;
+    border-radius : 7px;
+}
+.feed-card-img{
+    width:100%;
+    height: 130px;
+    opacity: 1;
+    border-radius: 7px;
+}
+
+.description-box{
+    /* text-align: left; */
+    /* margin: 0 10px; */
+   float: right;
+}
+.description{
+    margin: 30px 10px 10px 10px;
+    clear: both;
+    padding-bottom: 2px;
+    text-align: left;
+    font-size: 14px;
+    color: #868585;
+    font-family: 'TitilliumWeb-Regular', sans-serif;
+}
+
+
+
+.heading{
+    line-height: 1;
+    margin: 5px 10px;
+    font-size: 18px;
+    color: #20163B;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+    font-family: 'Basic', sans-serif;
+}
+
+author, date{
+    margin: 0 10px;
+    font-family: 'Nunito-Regular', sans-serif;
+    color: #6D6965;
+    font-size: 14px;
+}
+author{
+    float: left;
+}
+date{
+    float: right;
+}
+
+/* User action button CSS */
+
+.actionButtonsDiv{
+    width: 75px;
+    position: relative;
+    top: 25px;
+    right: -786px;
+    float: left;
+}
+
+.selectIcon, .deleteIcon, .archiveIcon, .publishIcon{
+    padding : 4px 1px ;
+    display: inline-block;
+    background-color: #FFF;
+}
+
+
+.hoverText{
+    border-radius : 5px;
+    padding :4px;
+    font-size : 14px;
+    color : white;
+    font-family: "Roboto", sans-serif;
+}
+
+.hoverText#selectHighlight{
+    visibility: hidden;
+    background-color: #B81ADF;
+}
+
+.hoverText#deleteHighlight{
+    visibility: hidden;
+    background-color: #D60C0C;
+}
+.hoverText#archiveHighlight{
+    visibility: hidden;
+    background-color: #5D5DBD;
+}
+.hoverText#publishHighlight{
+    visibility: hidden;
+    background-color: #259625;
+}
+
+
+.selectIcon{
+    border-top-right-radius: 5px;
+    border : 0.5px solid #C9BBBB;
+}
+.selectIcon:hover{
+    background-color: #F7F4F4;
+}
+
+.selectIcon:hover + .hoverText#selectHighlight{
+    visibility: visible;
+}
+
+.selectIcon:active{
+    background-color: #B2BBB5;
+}
+
+.deleteIcon{
+    border: 0.5px solid #C9BBBB;
+}
+.deleteIcon:hover{
+    background-color: #F7F4F4;
+}
+.deleteIcon:hover + .hoverText#deleteHighlight{
+    visibility: visible;
+    background-color: #D60C0C;
+}
+.deleteIcon:active{
+    background-color: #B2BBB5;
+}
+
+
+.archiveIcon{
+    border: 0.5px solid #C9BBBB;
+}
+.archiveIcon:hover{
+    background-color: #F7F4F4;
+}
+
+.archiveIcon:hover + .hoverText#archiveHighlight{
+    visibility: visible;
+    background-color: #5D5DBD;
+}
+.archiveIcon:active{
+    background-color: #B2BBB5;
+}
+
+
+.publishIcon{
+    border: 0.5px solid #C9BBBB;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 1px 0px 0px #676B64;
+}
+.publishIcon:hover{
+    background-color: #F7F4F4;
+}
+.publishIcon:hover + .hoverText#publishHighlight{
+    visibility : visible;
+    background-color: #259625;
+}
+.publishIcon:active{
+    background-color: #B2BBB5;
+}
+
+@media(min-width:768px){
+    .col-md-3{
+        width:20%;
+    }
+
+    .col-md-9{
+        width:80%;
+    }
+}
