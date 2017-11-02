@@ -38,7 +38,7 @@
 
 .filters{
     padding: 10px;
-    /* border:  1px solid black; */
+     border:  1px solid black; 
     position:sticky;
     top: 100px;
     height: 70vh;
@@ -250,8 +250,8 @@ date{
     
 }
 
-.userPanelItem:hover {
-    background-color: blue;
+.userPanelItem:hover p{
+    text-decoration: underline;
 }
 
 /* Multiple Select */

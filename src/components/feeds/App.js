@@ -182,6 +182,7 @@ class App extends Component{
                   return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { true} removeSelectedFromArray = {  this.removeSelectedFromArray}/>
                 }
                 else {
+                  this.removeSelectedFromArray(value.feedIndexNumber,value.feedObjectId);
                   return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { false } removeSelectedFromArray = {  this.removeSelectedFromArray}/>
                 }
                 
