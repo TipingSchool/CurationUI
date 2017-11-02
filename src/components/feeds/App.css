@@ -24,7 +24,7 @@
 }
 
 .stat{
-    height: 60px;
+    height: 120px;
 }
   
 
@@ -32,7 +32,7 @@
 
 .grid-container{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr ;
+    grid-template-columns: 1fr 4fr ;
     grid-column-gap: 50px;
 }
 
@@ -118,8 +118,8 @@ date{
 .actionButtonsDiv{
     width: 75px;
     position: relative;
-    top: -125px;
-    right: -711px;
+    top: 27px;
+    right: -786px;
     float: left;
 }
 
@@ -232,20 +232,22 @@ date{
 
 
 .userActionUI {
-    height:300px;
-    width: 200px;
-    background-color: whitesmoke;
-    color: black;
+    height: 37px;
+    
+    background-color: #2B2929;
+    color: white;
     position: fixed;
     top: 60px;
-    right: 10px;
-
-
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .userPanelItem {
-    margin: 5px 0;
     cursor: pointer;
+    width: 144px;
+    float: left;
+    margin: 7px 6px;
+    
 }
 
 .userPanelItem:hover {

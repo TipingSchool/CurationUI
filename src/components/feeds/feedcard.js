@@ -33,6 +33,10 @@ class FeedCard extends Component{
       if(nextProp.selectAll == true) {
         this.isSelected = true;
       }
+
+      if(this.props.selectAll == true && nextProp.selectAll == false) {
+        this.isSelected = false;
+      }
   
     } 
     
