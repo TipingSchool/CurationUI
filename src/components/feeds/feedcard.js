@@ -6,16 +6,35 @@ import FaCheckCircleO from 'react-icons/lib/fa/check-circle-o';
 import './App.css';
 import Modal from './modal/modal';
 import node1 from '../Categories/node1.png';
+import CheckBoxBlank from 'react-icons/lib/md/check-box-outline-blank' ;
+import CheckBox from 'react-icons/lib/md/check-box';
 
 
+let selectCounter = 0;
 
 class FeedCard extends Component{    
   constructor(props){
     super(props);
       this.state = {
         isModalOpen: false,
+        isSelected : false,
       }; 
     }
+
+    isSelected = false;
+
+    componentWillReceiveProps(nextProp){
+      //console.log("is selected is " + this.state.isSelected + "  next props is " + nextProps );
+      if(this.props._id !== nextProp._id) {
+        this.isSelected = false;
+        console.log("this props is " + this.props.selectAll + "  next is " + nextProp.selectAll);
+      }
+
+      if(nextProp.selectAll == true) {
+        this.isSelected = true;
+      }
+  
+    } 
     
     openModal = () => {
       this.setState({isModalOpen:!(this.state.isModalOpen)});
@@ -33,6 +52,31 @@ class FeedCard extends Component{
 
     publishFeedFunctionLocal = () => {
       this.props.publishFeedAction(this.props.indexNumber, this.props._id);
+    }
+
+    // Multiple Operations
+
+    multipleSelect = () => {
+      this.props.addSelectedToArray(this.props.indexNumber,this.props._id);
+      ++selectCounter;
+      this.props.toogleUserActionPanel(selectCounter);
+      this.setState({isSelected : !(this.state.isSelected)});
+      console.log("multi is  " + this.state.isSelected);
+      this.isSelected = true;
+    }
+
+  
+
+    unSelect = () => {
+      --selectCounter;
+      this.props.removeSelectedFromArray(this.props.indexNumber,this.props._id);
+      console.log("slect counter is " + this.state.isSelected);
+      if(selectCounter == 0 ) {
+        this.props.toogleUserActionPanel(selectCounter);
+      }
+      this.setState({isSelected : false});
+      this.isSelected=false;
+      
     }
 
   render(){
@@ -61,8 +105,8 @@ class FeedCard extends Component{
           
 
               <div className = "actionButtonsDiv">
-                  <FaCheckCircleO className = "selectIcon"/>
-                  <span id = "selectHighlight" className = "hoverText" onClick = { this.selectFeedFunctionLocal }>Select</span><br/>
+              { this.isSelected ? <CheckBox className="selectIcon" onClick = {this.unSelect } /> : <CheckBoxBlank className="selectIcon" onClick = { this.multipleSelect } /> }
+                  <span id = "selectHighlight" className = "hoverText">Select</span><br/>
                   <FaTrashO className = "deleteIcon" onClick = { this.deleteFeedFunctionLocal } />
                   <span id = "deleteHighlight" className = "hoverText">Delete</span><br/>
                   <FaBookmarkO className = "archiveIcon" onClick = { this.archiveFeedFunctionLocal } />

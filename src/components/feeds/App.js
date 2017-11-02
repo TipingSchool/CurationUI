@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-import UserActions from "./User_actions";
+import UserActionPanel from "./userActionPanel";
 import FeedCard from './feedcard';
 import axios from 'axios';
 import config from '../../config';
 
 const UriPlaceholder = config.api_Url;
 let selected = [] ; //Array Containing the Selected Feeds for User Action
+let selectAll = false; //to Select All Active Feeds, will work in lazy loading too.
 
 class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      feeds:[]
+      feeds:[],
+      userActionPanelActive : false      
     }
   }
 
@@ -89,6 +91,70 @@ class App extends Component{
     });
   }
 
+// User Actions Methods ... 
+
+  toogleUserActionPanel = (selectCounter) => {
+    if(selectCounter == 0)
+    this.setState({userActionPanelActive : false });
+    else 
+    this.setState({userActionPanelActive : true });
+  }
+
+  addSelectedToArray= (feedIndexNumber,feedObjectId) => {
+    selected.push({feedIndexNumber : feedIndexNumber , feedObjectId : feedObjectId});
+    
+  }
+
+  removeSelectedFromArray = (feedIndexNumber,feedObjectId) => {
+    
+  }
+  multiplePublish = () => {
+    //console.log(selected);
+    selected.map( (value,i) => 
+      { 
+          this.publishFeedAction(value.feedIndexNumber,value.feedObjectId) ; 
+          console.log("published" + value) ;
+      } 
+    )
+
+    selected = [];
+    selectAll = false;
+    //console.log("new selected = " + selected);
+  }
+
+  multipleDelete = () => {
+      selected.map( (value,i) => 
+      { 
+          this.publishFeedAction(value.feedIndexNumber,value.feedObjectId) ; 
+          console.log("published" + value) ;
+      } 
+    )
+
+    selected = [];
+    selectAll = false;
+    //console.log("new selected = " + selected);
+  }
+
+  multipleArchive = () => {
+      selected.map( (value,i) => 
+      { 
+          this.publishFeedAction(value.feedIndexNumber,value.feedObjectId) ; 
+          console.log("published" + value) ;
+      } 
+    )
+
+    selected = [];
+    selectAll = false;
+  }
+
+  selectAll = () => {
+    selectAll = true;
+    console.log("in select all");
+    this.forceUpdate();
+  }
+
+
+
     render(){
       return(
         <div className="App">
@@ -98,7 +164,17 @@ class App extends Component{
           
           </div>
           <div>
-              {this.state.feeds.map((value,i) =>(  <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }/>))}   
+          {this.state.userActionPanelActive ? <UserActionPanel multiplePublish={  this.multiplePublish } multipleArchive = {  this.multipleArchive} multipleDelete = {  this.multipleDelete}   selectAll = {  this.selectAll }/>: null }
+              {this.state.feeds.map((value,i) =>{
+                if(selectAll) {
+                  selected.push({feedIndexNumber : value.feedIndexNumber , feedObjectId : value.feedObjectId});
+                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { true}/>
+                }
+                else {
+                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { false }/>
+                }
+                
+              }) } 
           </div>
           </div>  
         </div>
