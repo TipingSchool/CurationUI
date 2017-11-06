@@ -11,34 +11,50 @@ import CheckBox from 'react-icons/lib/md/check-box';
 
 
 let selectCounter = 0;
+let flag = true;
 
 class FeedCard extends Component{    
   constructor(props){
     super(props);
       this.state = {
         isModalOpen: false,
-        isSelected : false,
+        isFeedSelected: false,
+        isSelectAll : this.props.selectAll,
+        isUnSelectAll : this.props.unSelectAll,
       }; 
     }
 
-    isSelected = false;
-
-    componentWillReceiveProps(nextProp){
-      //console.log("is selected is " + this.state.isSelected + "  next props is " + nextProps );
-      if(this.props._id !== nextProp._id) {
-        this.isSelected = false;
-        console.log("this props is " + this.props.selectAll + "  next is " + nextProp.selectAll);
+    componentWillReceiveProps(nextProp, nextState) {
+      if(nextProp._id  !== this.props._id ) {
+        this.setState({isFeedSelected : false});
       }
 
-      if(nextProp.selectAll == true) {
-        this.isSelected = true;
+      //console.log(nextProp.unSelectAll + " jhg " + this.props.selectAll );
+
+      if(nextProp.selectAll == true && this.state.isSelectAll == false ) {
+        this.setState({isFeedSelected : true});
+        this.setState({isSelectAll : true});
+        this.setState({isUnSelectAll : false});
       }
 
-      if(this.props.selectAll == true && nextProp.selectAll == false) {
-        this.isSelected = false;
+     // console.log(" is next prop unselectall : " + nextProp.unSelectAll + " and this state unselectall is " + this.state.isUnSelectAll);
+
+      if(nextProp.unSelectAll == true && this.state.isUnSelectAll == false  && this.props.unSelectAll == false ) {
+        //console.log("inseide as;dlk;aslkdasda;sjfkdjlkfds");
+          this.setState({isUnSelectAll : true});
+          this.setState({isFeedSelected : false });
+          this.setState({isSelectAll : false});
+        }
+
+      if(nextProp.unSelectAll == true && this.state.isSelectAll == true ) {
+        this.setState({isFeedSelected : false});
+        this.setState({isUnSelectAll : false });
+        this.setState({isSelectAll : false});
       }
-  
-    } 
+
+      
+      
+    }
     
     openModal = () => {
       this.setState({isModalOpen:!(this.state.isModalOpen)});
@@ -64,9 +80,10 @@ class FeedCard extends Component{
       this.props.addSelectedToArray(this.props.indexNumber,this.props._id);
       ++selectCounter;
       this.props.toogleUserActionPanel(selectCounter);
-      this.setState({isSelected : !(this.state.isSelected)});
-      console.log("multi is  " + this.state.isSelected);
-      this.isSelected = true;
+      this.setState({isFeedSelected : true, isUnSelectAll : false });
+    
+      
+      //console.log(" state in multiselect is "+ this.state.isUnSelectAll);
     }
 
   
@@ -74,12 +91,13 @@ class FeedCard extends Component{
     unSelect = () => {
       --selectCounter;
       this.props.removeSelectedFromArray(this.props.indexNumber,this.props._id);
-      console.log("slect counter is " + this.state.isSelected);
       if(selectCounter == 0 ) {
         this.props.toogleUserActionPanel(selectCounter);
+        //this.setState({isUnSelectAll : true});
+        //this.setState({isSelectAll : true});
       }
-      this.setState({isSelected : false});
-      this.isSelected=false;
+
+      this.setState({isFeedSelected : false});
       
     }
 
@@ -109,7 +127,7 @@ class FeedCard extends Component{
           
 
               <div className = "actionButtonsDiv">
-              { this.isSelected ? <CheckBox className="selectIcon" onClick = {this.unSelect } /> : <CheckBoxBlank className="selectIcon" onClick = { this.multipleSelect } /> }
+              { this.state.isFeedSelected ? <CheckBox className="selectIcon" onClick = {this.unSelect } /> : <CheckBoxBlank className="selectIcon" onClick = { this.multipleSelect } /> }
                   <span id = "selectHighlight" className = "hoverText">Select</span><br/>
                   <FaTrashO className = "deleteIcon" onClick = { this.deleteFeedFunctionLocal } />
                   <span id = "deleteHighlight" className = "hoverText">Delete</span><br/>

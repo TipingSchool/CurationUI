@@ -8,6 +8,8 @@ import config from '../../config';
 const UriPlaceholder = config.api_Url;
 let selected = [] ; //Array Containing the Selected Feeds for User Action
 let selectAll = false; //to Select All Active Feeds, will work in lazy loading too.
+let unSelectAll = false;
+
 
 class App extends Component{
   constructor(props){
@@ -102,6 +104,8 @@ class App extends Component{
 
   addSelectedToArray= (feedIndexNumber,feedObjectId) => {
     selected.push({feedIndexNumber : feedIndexNumber , feedObjectId : feedObjectId});
+    selectAll = false;
+    unSelectAll = false;
     
   }
 
@@ -111,7 +115,8 @@ class App extends Component{
         selected.splice(element.feedIndexNumber,1);
       }
     }, this);
-    console.log(selected);
+    selectAll = false ;
+    unSelectAll = false;
   }
   multiplePublish = () => {
     //console.log(selected);
@@ -155,12 +160,14 @@ class App extends Component{
   selectAll = () => {
     selectAll = true;
     //console.log("in select all");
+    unSelectAll = false;
     this.forceUpdate();
   }
 
   unSelectAll = () => {
     selectAll = false;
-    console.log("in unselect all");
+    unSelectAll = true;
+    
     this.forceUpdate();
   }
 
@@ -177,18 +184,23 @@ class App extends Component{
           <div>
           {this.state.userActionPanelActive ? <UserActionPanel multiplePublish={  this.multiplePublish } multipleArchive = {  this.multipleArchive} multipleDelete = {  this.multipleDelete}   selectAll = {  this.selectAll } unSelectAll = {  this.unSelectAll}/>: null }
               {this.state.feeds.map((value,i) =>{
+
                 if(selectAll) {
                   this.addSelectedToArray(value.feedIndexNumber,value.feedObjectId);
-                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { true} removeSelectedFromArray = {  this.removeSelectedFromArray}/>
+                  selectAll = true;
+                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { true } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
                 }
-                else {
+                if(unSelectAll) {
                   this.removeSelectedFromArray(value.feedIndexNumber,value.feedObjectId);
-                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { false } removeSelectedFromArray = {  this.removeSelectedFromArray}/>
+                  unSelectAll = true;
+                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { selectAll } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
                 }
+
+                return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { selectAll } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
                 
               }) } 
           </div>
-          </div>  
+          </div> 
         </div>
       );
     }
