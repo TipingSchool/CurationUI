@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import UserActionPanel from "./userActionPanel";
 import FeedCard from './feedcard';
+import Facets from '../facets/App'
 import axios from 'axios';
 import config from '../../config';
 
@@ -179,7 +180,7 @@ class App extends Component{
           <div className="stat"/>
           <div className='grid-container'>
           <div className='filters'>
-          
+            <Facets/>
           </div>
           <div>
           {this.state.userActionPanelActive ? <UserActionPanel multiplePublish={  this.multiplePublish } multipleArchive = {  this.multipleArchive} multipleDelete = {  this.multipleDelete}   selectAll = {  this.selectAll } unSelectAll = {  this.unSelectAll}/>: null }
