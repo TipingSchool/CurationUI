@@ -6,9 +6,10 @@ import Feeds from '../feeds/App';
 const App = () =>(
     <div>
         <Switch>
-            <Route exact path='/feeds/:name' component={Feeds}/>
+            
+            <Route exact path='/' component={Feeds}/>
             <Route exact path='/feeds' component={Feeds}/>
-            <Route exact path='/' component={Categories}/>
+            <Route exact path='/categories' component={Categories}/>
             <Route exact path='/search' component={Feeds}/>
         </Switch>
        

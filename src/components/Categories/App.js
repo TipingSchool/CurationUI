@@ -17,8 +17,8 @@ class App extends Component {
         constructor(props){
           super(props);
           this.state ={
-            CardValue :[{'imgsrc':mongo, 'title':'MongoDB','name':'mongodb'},{'imgsrc':node, 'title':'NodeJS','name':'nodejs'},{'imgsrc':react, 'title':'ReactJS','name':'reactjs'},
-            {'imgsrc':webdev, 'title':'JavaScript','name':'javascript'},{'imgsrc':devop, 'title':'DevOps','name':'devops'},{'imgsrc':html, 'title':'HTML/CSS','name':'html5'},{'imgsrc':webdev, 'title':'Product Management','name':'product'},{'imgsrc':webdev, 'title':'Engineering','name':'engineering'},{'imgsrc':webdev, 'title':'Web Design','name':'design'}]
+            CardValue :[{'imgsrc':mongo, 'title':'MongoDB','name':'mongodb'},{'imgsrc':node, 'title':'NodeJS','name':'nodejs'},{'imgsrc':react, 'title':'ReactJS','name':'react'},
+            {'imgsrc':webdev, 'title':'JavaScript','name':'javascript'},{'imgsrc':devop, 'title':'DevOps','name':'devops'},{'imgsrc':html, 'title':'HTML/CSS','name':'html'},{'imgsrc':webdev, 'title':'Product Management','name':'product'},{'imgsrc':webdev, 'title':'Engineering','name':'engineering'},{'imgsrc':webdev, 'title':'Web Design','name':'design'}]
           }
        
         }
@@ -30,7 +30,7 @@ class App extends Component {
         <div className="stat">
           </div>
         <div className='flex-container' >
-         {this.state.CardValue.map((value,i) =>( <Link key={i} to={`/feeds/${value.name}`  } style={ CatCard_style }>
+         {this.state.CardValue.map((value,i) =>( <Link key={i} to={`/feeds?cat=${value.name}&state=none`  } style={ CatCard_style }>
           <CatCard key={i} {...value}  /></Link>))}
         </div>
       </div>
