@@ -30,7 +30,7 @@ class App extends Component {
         <div className="stat">
           </div>
         <div className='flex-container' >
-         {this.state.CardValue.map((value,i) =>( <Link key={i} to={`/feeds?cat=${value.name}&state=none`  } style={ CatCard_style }>
+         {this.state.CardValue.map((value,i) =>( <Link key={i} to={`/feeds/${value.name}`  } style={ CatCard_style }>
           <CatCard key={i} {...value}  /></Link>))}
         </div>
       </div>

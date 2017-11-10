@@ -13,7 +13,7 @@ class App extends Component {
    findpublished =() => {
 
     //    console.log(this)
-       this.props.history.push(this.props.location.pathname + '?find=published')
+       this.props.history.push(this.props.location.pathname + '?state=pub')
    }
 
     render(){
