@@ -14,6 +14,7 @@ export default class UserActionPanel extends Component {
             <div className ="userPanelItem" onClick = { this.props.multiplePublish}><p>Publish Selected</p></div>
             <div className ="userPanelItem" onClick={this.props.multipleArchive}><p>Archive Selected</p></div>
             <div className ="userPanelItem" onClick={this.props.multipleDelete}><p>Delete Selected</p></div>
+            <div className ="userPanelItem" onClick={this.props.multipleUnpublish}><p>Unpublish</p></div>
         </div>
         )
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 import FaBookmarkO from 'react-icons/lib/fa/bookmark-o';
 import FaCloudUpload from 'react-icons/lib/fa/cloud-upload';
+import FaCloudDownload from 'react-icons/lib/fa/cloud-download';
 import FaCheckCircleO from 'react-icons/lib/fa/check-circle-o';
 import './App.css';
 import Modal from './modal/modal';
@@ -47,13 +48,10 @@ class FeedCard extends Component{
         }
 
       if(nextProp.unSelectAll == true && this.state.isSelectAll == true ) {
-        this.setState({isFeedSelected : false});
-        this.setState({isUnSelectAll : false });
-        this.setState({isSelectAll : false});
-      }
-
-      
-      
+         this.setState({isFeedSelected : false});
+         this.setState({isUnSelectAll : false });
+         this.setState({isSelectAll : false});
+        }      
     }
     
     openModal = () => {
@@ -72,6 +70,10 @@ class FeedCard extends Component{
 
     publishFeedFunctionLocal = () => {
       this.props.publishFeedAction(this.props.indexNumber, this.props._id);
+    }
+
+    unpublishFeedFunctionLocal = () => {
+      this.props.unpublishFeedAction(this.props.indexNumber, this.props.id);
     }
 
     // Multiple Operations
@@ -134,7 +136,9 @@ class FeedCard extends Component{
                   <FaBookmarkO className = "archiveIcon" onClick = { this.archiveFeedFunctionLocal } />
                   <span id = "archiveHighlight" className = "hoverText" >Archive</span><br/>
                   <FaCloudUpload className = "publishIcon" onClick = { this.publishFeedFunctionLocal } />
-                  <span id = "publishHighlight" className = "hoverText">Publish</span> 
+                  <span id = "publishHighlight" className = "hoverText">Publish</span>
+                  <FaCloudDownload className = "unpublishIcon" onClick = { this.unpublishFeedFunctionLocal } />
+                  <span id = "unpublishHighlight" className = "hoverText">Unpublish</span> 
               </div>
           
     </div>

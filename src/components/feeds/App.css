@@ -44,6 +44,23 @@
     height: 70vh;
     margin-left: 10px;
 }
+.publishedBtn{
+border: 1px solid black;
+}
+
+.unpublishedBtn{
+    border: 1px solid black;
+}
+.archiveBtn{
+    border: 1px solid black;
+}
+.publisharchiveBtn{
+    border: 1px solid black;
+}
+.unpublisharchiveBtn{
+    border: 1px solid black;
+}
+
 .feed-card-box{
     display: inline-block;
     font-weight: 400;
@@ -116,14 +133,14 @@ date{
 /* User action button CSS */
 
 .actionButtonsDiv{
-    width: 75px;
+    width: 90px;
     position: relative;
-    top: 27px;
-    right: -786px;
+    top: 14px;
+    right: -801px;
     float: left;
 }
 
-.selectIcon, .deleteIcon, .archiveIcon, .publishIcon{
+.selectIcon, .deleteIcon, .archiveIcon, .publishIcon, .unpublishIcon{
     padding : 4px 1px ;
     display: inline-block;
     background-color: #FFF;
@@ -154,6 +171,10 @@ date{
 .hoverText#publishHighlight{
     visibility: hidden;
     background-color: #259625;
+}
+.hoverText#unpublishHighlight{
+    visibility: hidden;
+    background-color: #D60C0C;
 }
 
 
@@ -220,6 +241,22 @@ date{
     background-color: #B2BBB5;
 }
 
+.unpublishIcon{
+    border: 0.5px solid #C9BBBB;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 1px 0px 0px #676B64;
+}
+.unpublishIcon:hover{
+    background-color: #F7F4F4;
+}
+.unpublishIcon:hover + .hoverText#unpublishHighlight{
+    visibility: visible;
+    background-color: #D60C0C;
+}
+.unpublishIcon:active{
+    background-color: #B2BBB5;
+}
+
 @media(min-width:768px){
     .col-md-3{
         width:20%;
@@ -247,6 +284,7 @@ date{
     width: 144px;
     float: left;
     margin: 7px 6px;
+    z-index: +1;
     
 }
 
@@ -277,4 +315,36 @@ date{
 }
 .select:active{
     background-color: #B2BBB5;
+}
+
+
+.addrss {
+    margin: auto;
+    width: 50%;
+
+}
+
+.addrss input {
+    border: 1px solid lightblue;
+}
+
+.addrss input[type = 'text'] {
+    width: 90%;
+    margin-left :9px;
+    line-height: 24px;
+}
+
+.addrss input[type = 'submit'] {
+    margin-top : 20px;
+    background: transparent;
+    width: 20%;
+    height: 30px;
+}
+
+.addrss-container {
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    
 }
