@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './modal.css';
-import node1 from './node1.png'
+import node1 from './node1.png';
 import FaClose from 'react-icons/lib/fa/close';
 
 

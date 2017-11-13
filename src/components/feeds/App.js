@@ -94,6 +94,24 @@ class App extends Component{
     });
   }
 
+   unpublishFeedAction = (feedIndexNumber, feedObjectId) => {
+     var self=this;
+    axios.post(`${UriPlaceholder}${self.props.match.url}`,{
+          feedObjectId : feedObjectId,
+          action : "unpublish"
+    }).then(function(response){
+      console.log("post unpublished");
+    }).catch(function(error){
+       console.log(error);
+    });
+
+    let currentFeed = this.state.feeds;
+    currentFeed.splice(feedIndexNumber,1);
+    this.setState({
+      feeds : currentFeed
+    });
+   }
+
 // User Actions Methods ... 
 
   toogleUserActionPanel = (selectCounter) => {
@@ -136,8 +154,8 @@ class App extends Component{
   multipleDelete = () => {
       selected.map( (value,i) => 
       { 
-          this.publishFeedAction(value.feedIndexNumber,value.feedObjectId) ; 
-          console.log("published" + value) ;
+          this.deleteFeedAction(value.feedIndexNumber,value.feedObjectId) ; 
+          console.log("Deleted" + value) ;
       } 
     )
 
@@ -149,12 +167,22 @@ class App extends Component{
   multipleArchive = () => {
       selected.map( (value,i) => 
       { 
-          this.publishFeedAction(value.feedIndexNumber,value.feedObjectId) ; 
-          console.log("published" + value) ;
+          this.archiveFeedAction(value.feedIndexNumber,value.feedObjectId) ; 
+          console.log("Archived" + value) ;
       } 
     )
 
     selected = [];
+    selectAll = false;
+  }
+
+  multipleUnpublish =() =>{
+    selected.map( (value,i)=>
+    {
+      this.unpublishFeedAction(value.feedIndexNumber,value.feedObjectId);
+      console.log("Unpublished" + value);
+    })
+    selected= [];
     selectAll = false;
   }
 
@@ -183,21 +211,21 @@ class App extends Component{
             <Facets/>
           </div>
           <div>
-          {this.state.userActionPanelActive ? <UserActionPanel multiplePublish={  this.multiplePublish } multipleArchive = {  this.multipleArchive} multipleDelete = {  this.multipleDelete}   selectAll = {  this.selectAll } unSelectAll = {  this.unSelectAll}/>: null }
+          {this.state.userActionPanelActive ? <UserActionPanel multiplePublish={  this.multiplePublish } multipleArchive = {  this.multipleArchive} multipleDelete = {  this.multipleDelete} multipleUnpublish = { this.multipleUnpublish }  selectAll = {  this.selectAll } unSelectAll = {  this.unSelectAll}/>: null }
               {this.state.feeds.map((value,i) =>{
 
                 if(selectAll) {
                   this.addSelectedToArray(value.feedIndexNumber,value.feedObjectId);
                   selectAll = true;
-                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { true } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
+                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction } unpublishFeedAction = { this.unpublishFeedAction } toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { true } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
                 }
                 if(unSelectAll) {
                   this.removeSelectedFromArray(value.feedIndexNumber,value.feedObjectId);
                   unSelectAll = true;
-                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { selectAll } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
+                  return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction } unpublishFeedAction = { this.unpublishFeedAction } toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { selectAll } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
                 }
 
-                return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { selectAll } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
+                return <FeedCard key={i} {...value} indexNumber = {i} deleteFeedAction = { this.deleteFeedAction } archiveFeedAction = { this.archiveFeedAction } publishFeedAction = { this.publishFeedAction }  unpublishFeedAction = { this.unpublishFeedAction }  toogleUserActionPanel = {  this.toogleUserActionPanel  }  addSelectedToArray = { this.addSelectedToArray } selectAll = { selectAll } removeSelectedFromArray = {  this.removeSelectedFromArray} unSelectAll = {unSelectAll}/>
                 
               }) } 
           </div>
