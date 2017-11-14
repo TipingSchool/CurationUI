@@ -2,7 +2,7 @@
    position: fixed;
    top: 50%;
    left:50%;
-   width: 40%;
+   width: 80%;
    transform: translate(-50%,-50%);
    border-radius: 5px;
    z-index: 9999;
@@ -29,7 +29,7 @@
 }
 
 .modal-img{
-    margin: 10px 29%;
+    margin: 10px 38%;
 }
 
 .modal-title{

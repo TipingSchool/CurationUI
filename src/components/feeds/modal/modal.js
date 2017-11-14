@@ -34,7 +34,7 @@ class Modal extends Component{
                 <p> {this.props.child.creator}</p>
                 <p>{new Date(this.props.child.date).toDateString()}</p>
               </div>
-              <div className='modal-description'>{this.props.child.description} </div>
+              <div className='modal-description'>{this.props.child.description.substring(0,800)} </div>
               <div  ><a className='modal-link' href={this.props.child.link} target='#'>Visit Website</a> </div>
             </div>
          </div>
