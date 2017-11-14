@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import FaTrashO from 'react-icons/lib/fa/trash-o';
-import FaBookmarkO from 'react-icons/lib/fa/bookmark-o';
-import FaCloudUpload from 'react-icons/lib/fa/cloud-upload';
-import FaCloudDownload from 'react-icons/lib/fa/cloud-download';
 import FaCheckCircleO from 'react-icons/lib/fa/check-circle-o';
 import './App.css';
 import Modal from './modal/modal';
+import action,{Action1,Action2} from './action';
 import node1 from '../Categories/node1.png';
 import CheckBoxBlank from 'react-icons/lib/md/check-box-outline-blank' ;
 import CheckBox from 'react-icons/lib/md/check-box';
-
 
 let selectCounter = 0;
 let flag = true;
@@ -73,7 +69,7 @@ class FeedCard extends Component{
     }
 
     unpublishFeedFunctionLocal = () => {
-      this.props.unpublishFeedAction(this.props.indexNumber, this.props.id);
+      this.props.unpublishFeedAction(this.props.indexNumber, this.props._id);
     }
 
     // Multiple Operations
@@ -104,6 +100,16 @@ class FeedCard extends Component{
     }
 
   render(){
+    var actionPanel;
+      if(this.props.published){
+        actionPanel=<Action1 deleteFeedFunctionLocal={this.deleteFeedFunctionLocal} archiveFeedFunctionLocal={this.archiveFeedFunctionLocal} unpublishFeedFunctionLocal={this.unpublishFeedFunctionLocal} />;
+      console.log('published');
+      }
+      else{
+        actionPanel=<Action2 deleteFeedFunctionLocal={this.deleteFeedFunctionLocal} archiveFeedFunctionLocal={this.archiveFeedFunctionLocal} publishFeedFunctionLocal={this.publishFeedFunctionLocal} />
+        console.log('unpublished');
+      }
+      
     return(
     <div>
           <div className = "feed-card-box" onClick={this.openModal}>
@@ -118,29 +124,17 @@ class FeedCard extends Component{
                 </div>
               <div className='description'>
                   { this.props.description.substring(0,150) + '...' }
-              </div>
+              </div>     
               <div>
                   <Modal isOpen={this.state.isModalOpen} onClose={this.openModal}  child={this.props}/>
               </div>
             </div>
-
-          </div>
-
-          
-
-              <div className = "actionButtonsDiv">
-              { this.state.isFeedSelected ? <CheckBox className="selectIcon" onClick = {this.unSelect } /> : <CheckBoxBlank className="selectIcon" onClick = { this.multipleSelect } /> }
-                  <span id = "selectHighlight" className = "hoverText">Select</span><br/>
-                  <FaTrashO className = "deleteIcon" onClick = { this.deleteFeedFunctionLocal } />
-                  <span id = "deleteHighlight" className = "hoverText">Delete</span><br/>
-                  <FaBookmarkO className = "archiveIcon" onClick = { this.archiveFeedFunctionLocal } />
-                  <span id = "archiveHighlight" className = "hoverText" >Archive</span><br/>
-                  <FaCloudUpload className = "publishIcon" onClick = { this.publishFeedFunctionLocal } />
-                  <span id = "publishHighlight" className = "hoverText">Publish</span>
-                  <FaCloudDownload className = "unpublishIcon" onClick = { this.unpublishFeedFunctionLocal } />
-                  <span id = "unpublishHighlight" className = "hoverText">Unpublish</span> 
-              </div>
-          
+          </div> 
+          <div className = "actionButtonsDiv">
+                { this.state.isFeedSelected ? <CheckBox className="selectIcon" onClick = {this.unSelect } /> : <CheckBoxBlank className="selectIcon" onClick = { this.multipleSelect } /> }
+                <span id = "selectHighlight" className = "hoverText">Select</span><br/>
+              {actionPanel}
+            </div>   
     </div>
     );
   }

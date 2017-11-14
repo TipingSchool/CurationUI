@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import UserActionPanel from "./userActionPanel";
 import FeedCard from './feedcard';
-import Facets from '../facets/App'
+import Facets from '../facets/App';
 import axios from 'axios';
 import config from '../../config';
 
