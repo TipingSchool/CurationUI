@@ -202,7 +202,7 @@ class FeedCard extends Component{
     
   render(){
     var actionPanel;
-      if(this.props.published){
+      if(this.props.published == true){
         actionPanel=<Action1 deleteFeedFunctionLocal={this.deleteFeedFunctionLocal} archiveFeedFunctionLocal={this.archiveFeedFunctionLocal} unpublishFeedFunctionLocal={this.unpublishFeedFunctionLocal} />;
       console.log('published');
       }
