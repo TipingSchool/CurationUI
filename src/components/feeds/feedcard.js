@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FaCheckCircleO from 'react-icons/lib/fa/check-circle-o';
 import './App.css';
+import img from '../image/App'
 import Modal from './modal/modal';
 import action,{Action1,Action2} from './action';
 import node1 from '../Categories/node1.png';
@@ -19,11 +20,15 @@ class FeedCard extends Component{
         isFeedSelected: false,
         isSelectAll : this.props.selectAll,
         isUnSelectAll : this.props.unSelectAll,
-        time: ''
+        time: '',
+        im:''
       }; 
     }
 
     componentWillReceiveProps(nextProp, nextState) {
+      this.setState({im:Math.floor(Math.random() * 21)})
+
+      ///////////////////////////
 
       var date = new Date(this.props.date);
       var now = new Date();
@@ -149,6 +154,9 @@ class FeedCard extends Component{
       // var now = new Date();
       // var diff = Math.abs(now-date)/3600000
       // this.setState({time:this.props.date})
+      this.setState({im:Math.floor(Math.random() * 21)})
+
+      ///////////////////////////////
     
         var date = new Date(this.props.date);
         var now = new Date();
@@ -207,7 +215,7 @@ class FeedCard extends Component{
     <div>
           <div className = "feed-card-box" onClick={this.openModal}>
               <div className='img-card col-md-3'>
-                  <img className = "feed-card-img" src={ node1 } alt='try'/>
+                  <img className = "feed-card-img" src={ img[this.state.im] } alt='try'/>
               </div>
             <div className='description-box col-md-9'>
                 <p className='heading'> {this.props.title }</p>
@@ -220,7 +228,7 @@ class FeedCard extends Component{
                   { this.props.description.substring(0,150) + '...' }
               </div>     
               <div>
-                  <Modal isOpen={this.state.isModalOpen} onClose={this.openModal}  child={this.props}/>
+                  <Modal isOpen={this.state.isModalOpen} onClose={this.openModal} imgchild={img[this.state.im]} child={this.props}/>
               </div>
             </div>
           </div> 

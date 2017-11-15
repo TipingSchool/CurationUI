@@ -29,7 +29,11 @@
 }
 
 .modal-img{
-    margin: 10px 38%;
+    margin: 10px 36%;
+   
+}
+.modal-img1{
+    border-radius: 5px;
 }
 
 .modal-title{
