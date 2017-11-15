@@ -6,6 +6,7 @@ import action,{Action1,Action2} from './action';
 import node1 from '../Categories/node1.png';
 import CheckBoxBlank from 'react-icons/lib/md/check-box-outline-blank' ;
 import CheckBox from 'react-icons/lib/md/check-box';
+// import  from '../facets/App';
 
 let selectCounter = 0;
 let flag = true;
@@ -18,10 +19,54 @@ class FeedCard extends Component{
         isFeedSelected: false,
         isSelectAll : this.props.selectAll,
         isUnSelectAll : this.props.unSelectAll,
+        time: ''
       }; 
     }
 
     componentWillReceiveProps(nextProp, nextState) {
+
+      var date = new Date(this.props.date);
+      var now = new Date();
+      var diff = Math.abs(now-date)
+       switch(true){
+
+      case (diff<1000) :
+              this.setState({time:`${parseInt(diff)}`+" "+'mS ago'});
+              break;
+      
+      case (diff<60000) :
+              this.setState({time:`${parseInt(diff/1000)}`+" "+'S ago'});
+              break;
+              
+      case (diff<3600000) :
+              this.setState({time:`${parseInt(diff/60000)}`+" "+'min ago'});
+              break;
+
+      case (diff<86400000) :
+              this.setState({time:`${parseInt(diff/3600000)}`+" "+'hr ago'});
+              break;
+
+      case (diff<2592000000) :
+              this.setState({time:`${parseInt(diff/86400000)}`+" "+'days ago'});
+              break;
+      
+      case (diff<31104000000) :
+              this.setState({time:`${parseInt(diff/2592000000)}`+" "+'months ago'});
+              break;
+      
+      case (diff>31104000000) :
+              this.setState({time:`${parseInt(diff/31104000000)}`+" "+'years ago'});
+              break;
+
+      default:
+              this.setState({time:this.props.date});
+
+    }
+
+
+
+
+      //////////////////////////////////////////////////////
       if(nextProp._id  !== this.props._id ) {
         this.setState({isFeedSelected : false});
       }
@@ -99,6 +144,54 @@ class FeedCard extends Component{
       
     }
 
+    componentWillMount(){
+      // var date = new Date(this.props.date);
+      // var now = new Date();
+      // var diff = Math.abs(now-date)/3600000
+      // this.setState({time:this.props.date})
+    
+        var date = new Date(this.props.date);
+        var now = new Date();
+        var diff = Math.abs(now-date)
+         switch(true){
+  
+        case (diff<1000) :
+                this.setState({time:`${parseInt(diff)}`+" "+'mS ago'});
+                break;
+        
+        case (diff<60000) :
+                this.setState({time:`${parseInt(diff/1000)}`+" "+'S ago'});
+                break;
+                
+        case (diff<3600000) :
+                this.setState({time:`${parseInt(diff/60000)}`+" "+'min ago'});
+                break;
+
+        case (diff<86400000) :
+                this.setState({time:`${parseInt(diff/3600000)}`+" "+'hr ago'});
+                break;
+
+        case (diff<2592000000) :
+                this.setState({time:`${parseInt(diff/86400000)}`+" "+'days ago'});
+                break;
+        
+        case (diff<31104000000) :
+                this.setState({time:`${parseInt(diff/2592000000)}`+" "+'months ago'});
+                break;
+        
+        case (diff>31104000000) :
+                this.setState({time:`${parseInt(diff/31104000000)}`+" "+'years ago'});
+                break;
+
+        default:
+                this.setState({time:this.props.date});
+  
+      }
+  
+
+    }
+
+    
   render(){
     var actionPanel;
       if(this.props.published){
@@ -120,7 +213,8 @@ class FeedCard extends Component{
                 <p className='heading'> {this.props.title }</p>
                 <div>
                     <author> {this.props.creator.substring(0,20) }</author>
-                    <date>{ new Date(this.props.date).toDateString() }</date>
+                    <date>{this.state.time}</date>
+                    {/* <date>{ new Date(this.props.date).toDateString() }</date> */}
                 </div>
               <div className='description'>
                   { this.props.description.substring(0,150) + '...' }

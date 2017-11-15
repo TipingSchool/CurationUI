@@ -41,8 +41,7 @@ class App extends Component{
       })
       .catch(function (error){
         console.log(error);
-      });
-      console.log(self.props.location.pathname + self.props.location.search)
+      })
   }
 
   deleteFeedAction = (feedIndexNumber, feedObjectId) => {
