@@ -15,7 +15,7 @@ class App extends Component{
             <header className="App-header">
                 <ul className='nav-span'>
                     <li className='nav-span'><Link to='/cat' style={ navbar_style }>Categories</Link></li>
-                    <li className='nav-span'><Link to='/feeds/?state=unpub' style={ navbar_style }>Feeds</Link></li>
+                    <li className='nav-span'><Link to='/' style={ navbar_style }>Feeds</Link></li>
                     <li className='nav-span'>Login</li>
                     <li className='nav-span'><Link to='/add' style={ navbar_style }>Add</Link></li>
                     <Search className='nav-span' />
