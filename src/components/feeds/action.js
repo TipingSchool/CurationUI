@@ -3,8 +3,6 @@ import FaTrashO from 'react-icons/lib/fa/trash-o';
 import FaBookmarkO from 'react-icons/lib/fa/bookmark-o';
 import FaCloudUpload from 'react-icons/lib/fa/cloud-upload';
 import FaCloudDownload from 'react-icons/lib/fa/cloud-download';
-import CheckBoxBlank from 'react-icons/lib/md/check-box-outline-blank' ;
-import CheckBox from 'react-icons/lib/md/check-box';
 import './App.css';
 
 class Action1 extends Component{

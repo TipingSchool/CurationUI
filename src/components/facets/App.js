@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 class App extends Component {
     constructor(props){
         super(props);
+        
     }
 
    
@@ -38,6 +39,16 @@ class App extends Component {
     this.props.history.push(this.props.location.pathname+ '?state=latest100')
    } 
 
+   last7days =() =>{
+       this.props.history.push(this.props.location.pathname+ '?state=last7days')
+   }
+   last14days =() =>{
+    this.props.history.push(this.props.location.pathname+ '?state=last14days')
+   }
+   last21days =() =>{
+    this.props.history.push(this.props.location.pathname+ '?state=last21days')
+   }
+
     render(){
         return(
             <div>
@@ -57,6 +68,9 @@ class App extends Component {
                 <div className ="publisharchiveBtn" onClick ={this.findpublisharchive}> Publish Archive  </div>
                 <div className ="unpublisharchiveBtn" onClick ={this.findunpublisharchive}> Unpublish Archive  </div>
                 <div className ="latest100Btn" onClick ={this.latest100}> Latest 100 </div>
+                <div className ="last7daysBtn" onClick ={this.last7days}> Last 7days </div>
+                <div className ="last14daysBtn" onClick ={this.last14days}> Last 14days </div>
+                <div className ="last21daysBtn" onClick ={this.last21days}> Last 21days </div>
             </div>
         )
     }
