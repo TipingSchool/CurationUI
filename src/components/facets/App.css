@@ -1,29 +1,66 @@
-.publishedBtn{
-    border: 1px solid black;
-    }
-    
-.unpublishedBtn{
-        border: 1px solid black;
-    }
-.archiveBtn{
-        border: 1px solid black;
-    }
-.publisharchiveBtn{
-        border: 1px solid black;
-    }
-.unpublisharchiveBtn{
-        border: 1px solid black;
-    }
 
-.latest100Btn{
-    border: 1px solid black;
+font-face {
+    font-family:  'Basic';
+    src: url(../fonts/Basic-Regular.ttf);
 }
-.last7daysBtn{
-    border: 1px solid black;
+
+@font-face {
+    font-family : 'PT_Sans-Web-Regular';
+    src : url(../fonts/PT_Sans-Web-Regular.ttf);
 }
-.last14daysBtn{
-    border: 1px solid black;
+
+@font-face {
+    font-family : 'Nunito-Regular';
+    src : url(../fonts/Nunito-Regular.ttf);
 }
-.last21daysBtn{
-    border: 1px solid black;
+
+@font-face {
+    font-family : 'TitilliumWeb-Regular';
+    src : url(../fonts/TitilliumWeb-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src : url(../fonts/Roboto-Regular.ttf);
+}
+
+.facet{
+    border: 2px #1DA1F2 solid;
+    font-size: 20px;
+    /* border: 2px solid  #2B2929; */
+    background-color: whitesmoke !important;
+    color: #1DA1F2;
+    font-family: 'TitilliumWeb-Regular', sans-serif;
+    font-weight: 400;
+    border-radius: 10px;
+}
+.facet-ul{
+    list-style: none;
+    border-top: 2px solid #1DA1F2;
+}
+
+.cat{
+    text-decoration: none;
+    color: #1DA1F2;
+}
+
+.cat:hover{
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.nav1{
+    border-bottom: 2px solid #1DA1F2;
+    /* padding-left: 20px; */
+
+}
+.nav{
+    padding-left: 20px;
+    /* border: 1px solid whitesmoke; */
+    text-align: center;
+    text-align: justify;
+}
+.nav:hover{
+    font-weight: 800;
+    cursor: pointer;
 }

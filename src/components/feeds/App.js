@@ -187,7 +187,7 @@ class App extends Component{
 
   selectAll = () => {
     selectAll = true;
-    //console.log("in select all");
+    // console.log("in select all");
     unSelectAll = false;
     this.forceUpdate();
   }

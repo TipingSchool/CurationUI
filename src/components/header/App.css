@@ -1,5 +1,5 @@
 .App-header {
-    background-color: #2B2929;
+    background-color: #1DA1F2;
     height: 25px;
     font-size: 18px;
     padding: 15px;
@@ -8,6 +8,7 @@
     position: fixed;
     width : 100%;
     z-index: 10;
+    font-weight: 600;
 }
 
 .nav-span{

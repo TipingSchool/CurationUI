@@ -51,26 +51,24 @@ class App extends Component {
 
     render(){
         return(
-            <div>
-                <div>
-                    <ul>Categories
-                        <li><Link  to='/feeds/nodejs' >Nodejs</Link></li>
-                        <li><Link  to='/feeds/react' >Reactjs</Link></li>
-                        <li><Link  to='/feeds/mongodb' >MongoDB</Link></li>
-                        <li><Link  to='/feeds/devops' >DevOps</Link></li>
-                        <li><Link  to='/feeds/javascript' >JavaScript</Link></li>
-                        <li><Link  to='/cat' >More....</Link></li>
+            <div className='facet'>
+                <div className='nav1'> &nbsp; &nbsp; &nbsp; Categories
+                
+                    <ul className='facet-ul'>
+                        <li><Link className='cat'  to='/feeds/nodejs' >Nodejs</Link></li>
+                        <li><Link className='cat' to='/feeds/react' >Reactjs</Link></li>
+                        <li><Link className='cat'  to='/feeds/mongodb' >MongoDB</Link></li>
+                        <li><Link className='cat' to='/feeds/devops' >DevOps</Link></li>
+                        <li><Link className='cat' to='/feeds/javascript' >JavaScript</Link></li>
+                        <li><Link className='cat'  to='/cat' >More....</Link></li>
                     </ul>
                 </div>
-                <div className ="publishedBtn" onClick ={this.findpublished}> Published  </div>
-                <div className ="unpublishedBtn" onClick ={this.findunpublished}> Unpublished </div>
-                <div className ="archiveBtn" onClick ={this.findarchive}> Archive  </div>
-                <div className ="publisharchiveBtn" onClick ={this.findpublisharchive}> Publish Archive  </div>
-                <div className ="unpublisharchiveBtn" onClick ={this.findunpublisharchive}> Unpublish Archive  </div>
-                <div className ="latest100Btn" onClick ={this.latest100}> Latest 100 </div>
-                <div className ="last7daysBtn" onClick ={this.last7days}> Last 7days </div>
-                <div className ="last14daysBtn" onClick ={this.last14days}> Last 14days </div>
-                <div className ="last21daysBtn" onClick ={this.last21days}> Last 21days </div>
+                <div className='nav' onClick ={this.findpublished}> Published  </div>
+                <div className='nav' onClick ={this.findarchive}> Archive  </div>
+                <div className='nav' onClick ={this.latest100}> Latest 100 </div>
+                <div className='nav' onClick ={this.last7days}> Last 7days </div>
+                <div className='nav' onClick ={this.last14days}> Last 14days </div>
+                <div className='nav' onClick ={this.last21days}> Last 21days </div>
             </div>
         )
     }

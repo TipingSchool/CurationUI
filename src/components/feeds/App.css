@@ -32,16 +32,14 @@
 
 .grid-container{
     display: grid;
-    grid-template-columns: 1fr 4fr ;
+    grid-template-columns: 0.75fr 4.25fr ;
     grid-column-gap: 50px;
 }
 
 .filters{
     padding: 10px;
-     border:  1px solid black; 
     position:sticky;
     top: 100px;
-    height: 70vh;
     margin-left: 10px;
 }
 
