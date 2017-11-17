@@ -25,7 +25,7 @@ class Modal extends Component{
          <div className='modal-box'>
          <p className='close'><FaClose onClick={ this.props.onClose }/></p>
             <div className='modal-img'>
-              <img className='modal-img1' src={this.props.imgchild} alt='try' width={300}/>
+              <img className='modal-img1' src={this.props.imgchild} alt='try' width={300} height={300}/>
             </div>
             <div className=''>
               <p className='modal-title'> {this.props.child.title}</p>

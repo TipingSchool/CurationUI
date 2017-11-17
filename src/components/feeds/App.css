@@ -24,7 +24,7 @@
 }
 
 .stat{
-    height: 120px;
+    height: 80px;
 }
   
 
@@ -124,6 +124,7 @@ date{
     top: 25px;
     right: -801px;
     float: left;
+    z-index: -1;
 }
 
 .selectIcon, .deleteIcon, .archiveIcon, .publishIcon, .unpublishIcon{

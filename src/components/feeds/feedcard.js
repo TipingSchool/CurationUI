@@ -218,7 +218,7 @@ class FeedCard extends Component{
                   <img className = "feed-card-img" src={ img[this.state.im] } alt='try'/>
               </div>
             <div className='description-box col-md-9'>
-                <p className='heading'> {this.props.title }</p>
+                <p className='heading'> {this.props.title.substring(0,100) }</p>
                 <div>
                     <author> {this.props.creator.substring(0,20) }</author>
                     <date>{this.state.time}</date>
