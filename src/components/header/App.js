@@ -18,7 +18,7 @@ class App extends Component{
                     <li className='nav-span'><Link to='/' style={ navbar_style }>Home</Link></li>
                     <li className='nav-span'><Link to='/cat' style={ navbar_style }>Categories</Link></li>
                     <li className='nav-span'>Login</li>
-                    <li className='nav-span'><Link to='/add' style={ navbar_style }>Add</Link></li>
+                    <li className='nav-span'><Link to='/add' style={ navbar_style } flag = {true}>Add</Link></li>
                     <Search className='nav-span' />
                 </ul>
             </header>
