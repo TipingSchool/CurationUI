@@ -122,7 +122,7 @@ date{
     top: 25px;
     right: -801px;
     float: left;
-    z-index: -1;
+    
 }
 
 .selectIcon, .deleteIcon, .archiveIcon, .publishIcon, .unpublishIcon{
@@ -255,13 +255,14 @@ date{
 
 .userActionUI {
     height: 37px;
-    
-    background-color: #2B2929;
-    color: white;
+    z-index: 10;
+    background-color: whitesmoke;
+    color: #1DA1F2;
     position: fixed;
     top: 60px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    border: 2px solid #1DA1F2;
 }
 
 .userPanelItem {
@@ -269,7 +270,7 @@ date{
     width: 144px;
     float: left;
     margin: 7px 6px;
-    z-index: +1;
+    
     
 }
 
