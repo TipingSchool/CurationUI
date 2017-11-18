@@ -32,8 +32,8 @@
 
 .grid-container{
     display: grid;
-    grid-template-columns: 0.75fr 4.25fr ;
-    grid-column-gap: 50px;
+    grid-template-columns: 1fr 3.25fr 0.75fr;
+    grid-column-gap: 20px;
 }
 
 .filters{
@@ -41,6 +41,7 @@
     position:sticky;
     top: 100px;
     margin-left: 10px;
+    height: 0.75vh;
 }
 
 .feed-card-box{
