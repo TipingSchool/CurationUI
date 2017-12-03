@@ -15,29 +15,43 @@ export default class Addrss extends Component {
     }
 
     sendUrlReq = (e) => {
-        console.log(this.props.flag)
+        console.log("asdasdasD" + this.props.flag)
         e.preventDefault();
+        if(this.state.cat.length == 0) {
+            alert("Validation Failed");
+            return;
+        }
         axios.post(`${uri}/addnewurl`,{
             url : this.state.inputValue
         }
       ).then(function(response){
+
+        console.log("inside");
+        console.log(response);
         if(response.status == false ) {
-            console.log("Something bad happened!!!")
+            alert("Something bad happened!!!")
         }
         if(response.status == true ) {
-
+            alert(this.state.url + " Added!!!");
         }
       });
     }
 
     sendCatReq = (e) => {
         e.preventDefault();
+        if(this.state.cat.length == 0) {
+            alert("Validation Failed");
+            return;
+        }
         axios.post(`${uri}/addnewcat`,{
-            url : this.state.inputValue
+            cat : this.state.cat
         }
       ).then(function(response){
         if(response.status == false ) {
-            console.log("Something bad happened!!!")
+            console.log("Something bad happened!!!");
+        }
+        if(response.status == true) {
+            alert(this.state.cat + " Added!!!");
         }
       });
     }
@@ -54,7 +68,7 @@ export default class Addrss extends Component {
 
     render() {
         return (
-            <div className = 'App'>
+            <div className = 'add-container'>
                  <div className='rss-container'>
                     <form className='addrss'>
                         Add Rss<input type="text" value={this.state.url} onChange={ this.updateURL}/>

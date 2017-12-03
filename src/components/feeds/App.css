@@ -32,8 +32,8 @@
 
 .grid-container{
     display: grid;
-    grid-template-columns: 0.75fr 4.25fr ;
-    grid-column-gap: 50px;
+    grid-template-columns: 1fr 3.25fr 0.75fr;
+    grid-column-gap: 20px;
 }
 
 .filters{
@@ -41,6 +41,7 @@
     position:sticky;
     top: 100px;
     margin-left: 10px;
+    height: 0.75vh;
 }
 
 .feed-card-box{
@@ -306,34 +307,8 @@ date{
 
 /* ADD SECTION */
 
-
-.addrss {
-    margin: auto;
-    width: 50%;
-
-}
-
-.addrss input {
-    border: 1px solid lightblue;
-}
-
-.addrss input[type = 'text'] {
-    width: 90%;
-    margin-left :9px;
-    line-height: 24px;
-}
-
-.addrss input[type = 'submit'] {
-    margin-top : 20px;
-    background: transparent;
-    width: 20%;
-    height: 30px;
-}
-
-.addrss-container {
-    height: 100vh;
-    width: 100%;
+.add-container {
+    position: relative;
+    top: 60px;
     text-align: center;
-    display: flex;
-    
 }
