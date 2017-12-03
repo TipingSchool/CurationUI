@@ -24,6 +24,7 @@ class App extends Component{
   componentWillReceiveProps(nextProp){
     var currentLocation = this.props.location.pathname + this.props.location.search
     var nextLocation = nextProp.location.pathname  + nextProp.location.search
+    console.log(nextLocation);
     if(currentLocation !== nextLocation){
       var self = this;
       axios.get(`${UriPlaceholder}${nextLocation}`).then(function(response){
@@ -79,6 +80,7 @@ class App extends Component{
 
   publishFeedAction = (feedIndexNumber, feedObjectId) => {
     var self = this;
+    //console.log(self.props.match.url);
     axios.post(`${UriPlaceholder}${self.props.match.url}`,{
       feedObjectId : feedObjectId,
       action : "publish"
