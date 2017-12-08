@@ -17,7 +17,7 @@ export default class Addrss extends Component {
     sendUrlReq = (e) => {
         console.log("asdasdasD" + this.props.flag)
         e.preventDefault();
-        if(this.state.cat.length == 0) {
+        if(this.state.url.length == 0) {
             alert("Validation Failed");
             return;
         }
