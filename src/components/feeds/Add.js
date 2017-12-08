@@ -22,7 +22,7 @@ export default class Addrss extends Component {
             return;
         }
         axios.post(`${uri}/addnewurl`,{
-            url : this.state.inputValue
+            url : this.state.url
         }
       ).then(function(response){
 
