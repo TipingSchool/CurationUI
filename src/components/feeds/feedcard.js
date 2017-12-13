@@ -204,11 +204,11 @@ class FeedCard extends Component{
     var actionPanel;
       if(this.props.published == true){
         actionPanel=<Action1 deleteFeedFunctionLocal={this.deleteFeedFunctionLocal} archiveFeedFunctionLocal={this.archiveFeedFunctionLocal} unpublishFeedFunctionLocal={this.unpublishFeedFunctionLocal} />;
-      console.log('published');
+    
       }
       else{
         actionPanel=<Action2 deleteFeedFunctionLocal={this.deleteFeedFunctionLocal} archiveFeedFunctionLocal={this.archiveFeedFunctionLocal} publishFeedFunctionLocal={this.publishFeedFunctionLocal} />
-        console.log('unpublished');
+        
       }
       
     return(

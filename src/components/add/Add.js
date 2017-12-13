@@ -66,17 +66,20 @@ export default class Addrss extends Component {
     render() {
         return (
             <div className = 'add-container'>
+                 <div className="stat"/>
                  <div className='rss-container'>
                     <form className='addrss'>
-                        Add Rss<input type="text" value={this.state.url} onChange={ this.updateURL}/>
-                        <input type="submit" value="Submit" onClick={this.sendUrlReq} />
+                        <p>Add New Source</p>
+                        <input className="text" type="text" value={this.state.url} onChange={ this.updateURL}/>
+                        <input className="but" type="button" value="Add" onClick={this.sendUrlReq} />
                     </form>
                 </div>
 
                 <div className='cat-container'>
                     <form className='addcat'>
-                        Add Category<input type="text" value={this.state.cat} onChange={ this.updateCAT}/>
-                        <input type="submit" value="Submit" onClick={this.sendCatReq} />
+                        <p>Add New Category</p>
+                        <input className="text" type="text" value={this.state.cat} onChange={ this.updateCAT}/>
+                        <input className="but" type="button" value="Add" onClick={this.sendCatReq} />
                     </form>
                 </div>
 

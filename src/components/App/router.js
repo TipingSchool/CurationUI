@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch,Route} from 'react-router-dom';
 import Categories from '../Categories/App';
 import Feeds from '../feeds/App';
-import Add from '../feeds/Add'
+import Add from '../add/Add'
 
 const App = () =>(
     <div>
