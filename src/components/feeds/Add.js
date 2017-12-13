@@ -24,14 +24,11 @@ export default class Addrss extends Component {
         axios.post(`${uri}/addnewurl`,{
             url : this.state.url
         }
-      ).then(function(response){
-
-        console.log("inside");
-        console.log(response);
-        if(response.status == false ) {
+      ).then((response) => {
+        if(response.data.status == false ) {
             alert("Something bad happened!!!")
         }
-        if(response.status == true ) {
+        if(response.data.status == true ) {
             alert(this.state.url + " Added!!!");
         }
       });
@@ -46,11 +43,11 @@ export default class Addrss extends Component {
         axios.post(`${uri}/addnewcat`,{
             cat : this.state.cat
         }
-      ).then(function(response){
-        if(response.status == false ) {
+      ).then((response) => {
+        if(response.data.status == false ) {
             console.log("Something bad happened!!!");
         }
-        if(response.status == true) {
+        if(response.data.status == true) {
             alert(this.state.cat + " Added!!!");
         }
       });
