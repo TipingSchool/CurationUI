@@ -79,7 +79,7 @@ export default class Addrss extends Component {
                 </div>
 
                 <div className='cat-container'>
-                    <form className='addcat'>
+                    <form className='addcat addrss'>
                         <p>Add New Category</p>
                         <input className="text" type="text" value={this.state.cat} onChange={ this.updateCAT}/>
                         <input className="but" type="button" value="Add" onClick={this.sendCatReq} />

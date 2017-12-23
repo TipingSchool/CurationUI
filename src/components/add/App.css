@@ -6,7 +6,7 @@
     background-color: #04457a;
     color: white;
     font-size: 20px;
-    border: 1px solod #130344;
+    border: none;
 }
 
 .add-container {
@@ -29,17 +29,13 @@
 
 .addrss{
     margin: 100px 10%;
-    background-color: rgb(182, 220, 230);
+    background-color: #ffffff;
     padding: 10px;
     height: 300px;
+    box-shadow: 1px 3px 2px -1px #1DA1F2;
+    border-radius: 5px;
 }
 
-.addcat{
-    margin: 100px 10%;
-    background-color: rgb(182, 220, 230);
-    padding: 10px;
-    height: 300px;
-}
 
 .text{
     display: inline-block;
@@ -48,4 +44,5 @@
     height: 40px;
     font-size: 20px;
     font-weight: 600;
+    text-align: center;
 }

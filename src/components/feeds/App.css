@@ -48,11 +48,11 @@
     display: inline-block;
     font-weight: 400;
     width:700px;
-    background-color: white;
+    background-color: #ffffff;
     height: 130px;
     margin: 10px 0 10px 10px;
     box-sizing: border-box;
-    box-shadow: 1px 3px 2px -1px #676B64;
+    box-shadow: 1px 3px 2px -1px #1DA1F2;
     font-size: 30px;
     font-family: sans-serif;
     cursor: pointer;
